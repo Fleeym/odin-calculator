@@ -6,6 +6,7 @@ h1 {
 
 html {
     font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body,
@@ -38,6 +39,20 @@ h1 {
     border-radius: 4px;
     padding: 0.5rem;
     box-shadow: 0 0 0.5rem 0.2rem rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+#memory {
+    text-align: end;
+    color: #64748b;
+    margin: 0 1rem 1rem 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    justify-self: flex-end;
 }
 
 .calculator-container .header {
@@ -121,4 +136,22 @@ button.equals-button {
 
 button.equals-button:hover {
     background-color: #16a34a;
+}
+
+button.operator-button {
+    background-color: #14b8a6;
+}
+
+button.operator-button:hover {
+    background-color: #0d9488;
+}
+
+button.c-button,
+button.ce-button {
+    background-color: #71717a;
+}
+
+button.c-button:hover,
+button.ce-button:hover {
+    background-color: #4b5563;
 }

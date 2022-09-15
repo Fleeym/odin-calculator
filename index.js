@@ -1,6 +1,7 @@
 'use strict';
 
 const screen = document.getElementById('screen');
+const memoryText = document.getElementById('memory');
 
 let lastOpperand = '';
 let memory = 0;
@@ -25,22 +26,24 @@ function operate(operator) {
         switch (operator) {
             case '+':
                 lastOpperand = '+';
-                memory += x;
+                memory += Number(x);
                 break;
             case '-':
                 lastOpperand = '-';
-                memory += x;
+                memory += Number(x);
                 break;
             case '*':
                 lastOpperand = '*';
-                memory += x;
+                memory += Number(x);
                 break;
             case '/':
                 lastOpperand = '/';
-                memory += x;
+                memory += Number(x);
                 break;
         }
+        memoryText.textContent = memory;
         screen.value = '';
+        x = '';
         console.log('current memory', memory);
     }
 }

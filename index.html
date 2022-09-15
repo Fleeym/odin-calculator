@@ -14,27 +14,28 @@
             <div class="calculator-container">
                 <div class="header">
                     <input class="screen" type="text" id="screen" readonly />
+                    <span id="memory"></span>
                 </div>
                 <div class="buttons">
                     <div class="numbers">
                         <button class="c-button" onclick="reset('soft')">C</button>
                         <button class="ce-button" onclick="reset('hard')">CE</button>
-                        <button class="plus-button" onclick="operate('+')">+</button>
+                        <button class="plus-button operator-button" onclick="operate('+')">+</button>
 
                         <button onclick="inputCharacter(1)">1</button>
                         <button onclick="inputCharacter(2)">2</button>
                         <button onclick="inputCharacter(3)">3</button>
 
-                        <button class="minus-button" onclick="operate('-')">-</button>
+                        <button class="minus-button operator-button" onclick="operate('-')">-</button>
                         <button onclick="inputCharacter(4)">4</button>
                         <button onclick="inputCharacter(5)">5</button>
                         <button onclick="inputCharacter(6)">6</button>
-                        <button class="multiply-button" onclick="operate('*')">*</button>
+                        <button class="multiply-button operator-button" onclick="operate('*')">*</button>
 
                         <button onclick="inputCharacter(7)">7</button>
                         <button onclick="inputCharacter(8)">8</button>
                         <button onclick="inputCharacter(9)">9</button>
-                        <button class="divide-button" onclick="operate('/')">/</button>
+                        <button class="divide-button operator-button" onclick="operate('/')">/</button>
 
                         <button class="zero-button" onclick="inputCharacter(0)">0</button>
                         <button class="equals-button" onclick="calculate()">=</button>
