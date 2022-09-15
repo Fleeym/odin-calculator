@@ -53,6 +53,12 @@ h1 {
     font-size: 1.5rem;
     font-weight: bold;
     justify-self: flex-end;
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+}
+
+#memory.active {
+    opacity: 100;
 }
 
 .calculator-container .header {

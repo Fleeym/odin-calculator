@@ -41,7 +41,8 @@ function operate(operator) {
                 memory += Number(x);
                 break;
         }
-        memoryText.textContent = memory;
+        memoryText.textContent = `${memory} ${lastOpperand}`;
+        memoryText.classList.add('active');
         screen.value = '';
         x = '';
         console.log('current memory', memory);
@@ -57,7 +58,10 @@ function reset(type) {
         case 'hard':
             x = '';
             lastOpperand = '';
+            memory = 0;
             screen.value = '';
+            memoryText.textContent = '';
+            memoryText.classList.remove('active');
             break;
         default:
             alert('Something bad happened!');
