@@ -1,0 +1,124 @@
+h1 {
+    font-size: 3rem;
+    color: #334155;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    font-size: 16px;
+}
+
+body,
+h1 {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #e2e8f0;
+    min-height: 100vh;
+}
+
+.c-button {
+    grid-area: c;
+}
+
+.ce-button {
+    grid-area: ce;
+}
+
+.calculator-container {
+    background-color: #f8fafc;
+    min-width: 10rem;
+    min-height: 20rem;
+    border-radius: 4px;
+    padding: 0.5rem;
+    box-shadow: 0 0 0.5rem 0.2rem rgba(0, 0, 0, 0.1);
+}
+
+.calculator-container .header {
+    width: 100%;
+}
+
+.screen {
+    margin: 1rem;
+    border: 1px solid #e2e8f0;
+    padding: 0.7rem;
+    font-size: 2rem;
+    border-radius: 4px;
+    cursor: auto;
+    text-align: right;
+    color: #64748b;
+}
+
+.numbers {
+    display: grid;
+    padding: 0.5rem;
+    grid-template-areas:
+        'c c ce plus'
+        '1 2 3 minus'
+        '4 5 6 multiply'
+        '7 8 9 divide'
+        'zero zero dot equals';
+    gap: 0.8rem;
+}
+
+.numbers button {
+    border-width: 0;
+    background-color: #38bdf8;
+    color: #f1f5f9;
+    padding: 0.5rem;
+    min-width: 4rem;
+    min-height: 4rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bold;
+    transition: 0.2s ease-in-out;
+}
+
+.numbers button:hover {
+    transform: scale(1.05);
+    background-color: #0284c7;
+}
+
+.numbers button:focus {
+    box-shadow: 0 0 0 0.2rem rgba(42, 184, 255, 0.5);
+}
+
+.screen:focus {
+    outline: 0;
+}
+
+.plus-button {
+    grid-area: plus;
+}
+
+.minus-button {
+    grid-area: minus;
+}
+
+.multiply-button {
+    grid-area: multiply;
+}
+
+.zero-button {
+    grid-area: zero;
+}
+
+.divide-button {
+    grid-area: divide;
+}
+
+button.equals-button {
+    grid-area: equals;
+    background-color: #22c55e;
+}
+
+button.equals-button:hover {
+    background-color: #16a34a;
+}
