@@ -3,50 +3,96 @@
 const screen = document.getElementById('screen');
 const memoryText = document.getElementById('memory');
 
+let addedDecimal = false;
 let lastOpperand = '';
 let memory = 0;
 let x = '';
 
 function inputCharacter(character) {
+    if (addedDecimal === true && character === '.') {
+        return;
+    }
+
+    x += character;
+    screen.value = x;
+
     if (character === '.') {
-        // logic for floating point
-    } else {
-        x += character;
-        screen.value = x;
+        addedDecimal = true;
     }
 }
 
-function calculate() {}
+function calculate() {
+    console.log(x);
+
+    updateMemory();
+    lastOpperand = '';
+    updateScreen();
+}
 
 function operate(operator) {
     if (x === '') {
         return;
     }
+
     if (lastOpperand === '') {
-        switch (operator) {
+        lastOpperand = operator;
+        memory = Number(x);
+    } else {
+        updateMemory();
+        switch(operator) {
             case '+':
                 lastOpperand = '+';
-                memory += Number(x);
                 break;
             case '-':
                 lastOpperand = '-';
-                memory += Number(x);
                 break;
             case '*':
                 lastOpperand = '*';
-                memory += Number(x);
                 break;
             case '/':
                 lastOpperand = '/';
-                memory += Number(x);
                 break;
         }
+    }
+    updateScreen();
+}
+
+function updateMemory() {
+    switch (lastOpperand) {
+        case '+':
+            memory += Number(x);
+            break;
+        case '-':
+            memory -= Number(x);
+            break;
+        case '*':
+            memory *= Number(x);
+            break;
+        case '/':
+            memory /= Number(x);
+            break;
+    }
+    memory = parseFloat(memory).toFixed(2);
+}
+
+function backspace() {
+    x = x.substring(0, x.length - 1);
+    screen.value = x;
+}
+
+function updateScreen() {
+    if (lastOpperand !== '') {
         memoryText.textContent = `${memory} ${lastOpperand}`;
         memoryText.classList.add('active');
         screen.value = '';
         x = '';
-        console.log('current memory', memory);
+    } else {
+        memoryText.textContent = '';
+        screen.value = `${memory}`;
+        memoryText.classList.remove('active');
+        x = memory;
     }
+    addedDecimal = false;
 }
 
 function reset(type) {
@@ -54,10 +100,12 @@ function reset(type) {
         case 'soft':
             x = '';
             screen.value = '';
+            addedDecimal = false;
             break;
         case 'hard':
             x = '';
             lastOpperand = '';
+            addedDecimal = false;
             memory = 0;
             screen.value = '';
             memoryText.textContent = '';
@@ -67,4 +115,9 @@ function reset(type) {
             alert('Something bad happened!');
             break;
     }
+    addedDecimal = false;
+}
+
+function isFloat(number) {
+    return number % 1 === 0
 }
